@@ -8,5 +8,7 @@ COPY . /usr/src/app
 
 RUN npm install --production
 
-CMD [ "ls" ]
+HEALTHCHECK --interval=12s --timeout=12s --start-period=30s \
+    CMD curl --fail http://localhost:8080/health || exit 1
+
 CMD [ "npm", "start" ]
