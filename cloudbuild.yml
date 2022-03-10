@@ -22,4 +22,7 @@ steps:
 - name: node
   entrypoint: npm
   args: ['test']
+# Docker
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/skilful-bliss-343616/Blyaind', '.' ]
 # [END cloudbuild_npm_node]
