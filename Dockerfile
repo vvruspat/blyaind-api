@@ -8,5 +8,3 @@ COPY . /usr/src/app
 RUN npm install
 
 RUN apk add --no-cache ca-certificates
-
-CMD [ "npm", "start" ]
