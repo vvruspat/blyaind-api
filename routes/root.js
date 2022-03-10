@@ -5,3 +5,7 @@ module.exports = async function (fastify, opts) {
     return { root: true }
   })
 }
+
+module.exports.options = {
+  http2: true
+}
