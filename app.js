@@ -1,25 +1,17 @@
-'use strict'
+const express = require('express');
+const app = express();
 
-const path = require('path')
-const AutoLoad = require('fastify-autoload')
+app.get('/', (req, res) => {
+  const name = process.env.NAME || 'World';
+  res.send(`Hello ${name}!`);
+});
 
-module.exports = async function (fastify, opts) {
-  // Place here your custom code!
+const port = parseInt(process.env.PORT) || 8080;
+app.listen(port, () => {
+  console.log(`helloworld: listening on port ${port}`);
+});
+// [END run_helloworld_service]
+// [END cloudrun_helloworld_service]
 
-  // Do not touch the following lines
-
-  // This loads all plugins defined in plugins
-  // those should be support plugins that are reused
-  // through your application
-  fastify.register(AutoLoad, {
-    dir: path.join(__dirname, 'plugins'),
-    options: Object.assign({}, opts)
-  })
-
-  // This loads all plugins defined in routes
-  // define your routes in one of these
-  fastify.register(AutoLoad, {
-    dir: path.join(__dirname, 'routes'),
-    options: Object.assign({}, opts)
-  })
-}
+// Exports for testing purposes.
+module.exports = app;
