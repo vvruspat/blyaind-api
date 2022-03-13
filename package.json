@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "fastify": "^3.27.4"
   },
   "devDependencies": {
     "tap": "^15.1.6"
